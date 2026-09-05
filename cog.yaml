@@ -3,6 +3,8 @@ build:
   python_version: "3.11"
   system_packages:
     - "curl"
+    - "cmake"
+    - "build-essential"
   python_packages:
     - "torch==2.0.1"
     - "torchvision==0.15.2"
@@ -12,7 +14,11 @@ build:
     - "python-dotenv"
     - "requests"
     - "numpy"
+    - "face_recognition"
   run:
     - curl -L -o /best_unet_model.pth https://huggingface.co/Robys01/face-aging/resolve/main/best_unet_model.pth
+    - mkdir -p assets
+    - curl -L -o assets/mask1024.jpg https://huggingface.co/spaces/Robys01/Face-Aging/resolve/main/assets/mask1024.jpg
+    - curl -L -o assets/mask512.jpg https://huggingface.co/spaces/Robys01/Face-Aging/resolve/main/assets/mask512.jpg
 
 predict: "predict.py:Predictor"
