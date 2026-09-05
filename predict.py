@@ -11,11 +11,8 @@ from test_functions import process_image
 class Predictor(BasePredictor):
     def setup(self):
         """Load the model into memory to make running multiple predictions efficient"""
-        print("Downloading and loading model weights...")
-        self.model_path = hf_hub_download(
-            repo_id="Robys01/face-aging",
-            filename="best_unet_model.pth"
-        )
+        print("Loading model weights...")
+        self.model_path = "/best_unet_model.pth"
         self.model = UNet()
         self.model.load_state_dict(torch.load(self.model_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu"), weights_only=False))
         

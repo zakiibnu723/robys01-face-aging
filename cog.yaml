@@ -1,6 +1,8 @@
 build:
   gpu: true
   python_version: "3.11"
+  system_packages:
+    - "curl"
   python_packages:
     - "torch==2.0.1"
     - "torchvision==0.15.2"
@@ -10,5 +12,7 @@ build:
     - "python-dotenv"
     - "requests"
     - "numpy"
+  run:
+    - curl -L -o /best_unet_model.pth https://huggingface.co/Robys01/face-aging/resolve/main/best_unet_model.pth
 
 predict: "predict.py:Predictor"
