@@ -1,0 +1,14 @@
+build:
+  gpu: true
+  python_version: "3.11"
+  python_packages:
+    - "torch==2.0.1"
+    - "torchvision==0.15.2"
+    - "Pillow==10.0.0"
+    - "huggingface-hub==0.16.4"
+    - "gradio_client"
+    - "python-dotenv"
+    - "requests"
+    - "numpy"
+
+predict: "predict.py:Predictor"
